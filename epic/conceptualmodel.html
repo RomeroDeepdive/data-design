@@ -1,7 +1,7 @@
 <!-- add the rest of required html-->
 <h2>Conceptual Model</h2>
 
-
+<!--Each Hunter/user can apply for multiple hunts.Their account/user doesn't change-->
 Hunter:
 HunterID (PK)
 HunterName
@@ -11,14 +11,17 @@ BillId (pk)
 billHunterId (fk1)
 billDate
 
-billUnit
-billUnitId
+<!--The Bills can change for each hunter. dependning on if they apply for ONLY deer, ONLY elk etc. -->
+billHunt(s)
+billHunt(s)Hunt(s)Id (fk)
+billHunt(s)Name
+billHunt(s)quantity
 
-
-Deer Unit:
-DeerUnitID (PK)
-DeerUnitName
-DeerUnitPRice
+<!--Hunts are something that do not change. Species will always be deer, elk, antelope etc.-->
+Hunt(s):
+HuntID (PK)
+HuntName
+HuntPrice
 
 
 
