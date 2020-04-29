@@ -2,19 +2,22 @@
 <h2>Conceptual Model</h2>
 
 <!--Each Hunter/user can apply for multiple hunts.Their account/user doesn't change-->
-Hunter:
-HunterID (PK)
+HunterProfile:
+HunterprofileId (pk)
+profileActivationToken (for account verification)
 HunterName
+HunterEmail
+HunterprofileHash (for account password)
 
 Bill:
 BillId (pk)
 billHunterId (fk1)
 billDate
 
-<!--The Bills can change for each hunter. dependning on if they apply for ONLY deer, ONLY elk etc. -->
+<!--The Bills can change for each hunter. depending on if they apply for ONLY deer, ONLY elk etc. -->
 billHunt(s)
 billHunt(s)Hunt(s)Id (fk)
-billHunt(s)Name
+billHunt(s)Name (fk)
 billHunt(s)quantity
 
 <!--Hunts are something that do not change. Species will always be deer, elk, antelope etc.-->
@@ -22,18 +25,6 @@ Hunt(s):
 HuntID (PK)
 HuntName
 HuntPrice
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
