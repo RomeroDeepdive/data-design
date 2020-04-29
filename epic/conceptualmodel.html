@@ -2,31 +2,50 @@
 <h2>Conceptual Model</h2>
 
 <!--Each Hunter/user can apply for multiple hunts.Their account/user doesn't change-->
-HunterProfile:
-HunterprofileId (pk)
-profileActivationToken (for account verification)
-HunterName
-HunterEmail
-HunterprofileHash (for account password)
+<section class="Hunter-Profile">
+	<div class="Hunter-Profile">
+<strong>Hunter:</strong>
+		<br>
+		<p>HunterprofileId (pk)</p>
+		<p>profileActivationToken (for account verification)
+		<p>HunterName
+		<p>HunterEmail
+		<p>HunterprofileHash (for account password)
+	</div>
+</section>
 
-Bill:
-BillId (pk)
-billHunterId (fk1)
-billDate
+<section class="Bill-for-Hunter">
+<div class="bill">
+<strong>Bill:</strong>
+<p>BillId (pk)
+<p>billHunterprofileId (fk1)
+<p>billDate
 
 <!--The Bills can change for each hunter. depending on if they apply for ONLY deer, ONLY elk etc. -->
-billHunt(s)
-billHunt(s)Hunt(s)Id (fk)
-billHunt(s)Name (fk)
-billHunt(s)quantity
+	<section class="Bill-Hunt">
+	<div class="Hunts-billed">
+	<strong>bill hunt:</strong>
+<br>
+<p>billHuntHuntCodeId (fk)
+<p>billHunterProfileId (fk)
+<p>billHuntSpeciesNameUnit(fk)
 
 <!--Hunts are something that do not change. Species will always be deer, elk, antelope etc.-->
-Hunt(s):
-HuntID (PK)
-HuntName
-HuntPrice
+	<section class="Hunts-applied">
+	<div class="Hunters-hunts">
+<strong>Hunt:</strong>
+<br>
+<p>HuntCodeID (PK)
+<p>HunterprofileId (fk)
+<p>HuntspeciesName
+<p>HuntspeciesNameUnit
+<p>Huntdate
+<p>Huntweapon
+<p>HuntPrice
+<p>HuntAttachmentCode
 
 
+<img src="hunter%20data.jpg">
 
 <h2><a href="index.html">Home Page</a></h2>
 <a href="./persona.html">Persona Page</a>
