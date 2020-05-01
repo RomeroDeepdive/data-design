@@ -4,7 +4,8 @@
 <!--Each Hunter/user can apply for multiple hunts.Their account/user doesn't change-->
 <section class="Hunter-Profile">
 	<div class="Hunter-Profile">
-<strong>Hunter:</strong>
+		<h2>Entities and Attributes:</h2>
+<strong>Hunter:(Strong)</strong>
 		<br>
 		<li>HunterprofileId (pk)</li>
 		<li>profileActivationToken (for account verification)</li>
@@ -13,27 +14,27 @@
 		<li>HunterprofileHash (for account password)</li>
 	</div>
 </section>
-
+<br>
 <section class="Bill-for-Hunter">
 <div class="bill">
-<strong>Bill:</strong>
+<strong>Bill:(weak)</strong>
 <li>BillId (pk)</li>
 <li>billHunterprofileId (fk1)</li>
 <li>billDate</li>
-
+	<br>
 <!--The Bills can change for each hunter. depending on if they apply for ONLY deer, ONLY elk etc. -->
 	<section class="Bill-Hunt">
 	<div class="Hunts-billed">
-	<strong>Bill Hunt:</strong>
+	<strong>Bill Hunt:(weak)</strong>
 <br>
 <li>billHuntHuntCodeId (fk)</li>
 <li>billHunterProfileId (fk)</li>
 <li>billHuntSpeciesNameUnit(fk)</li>
-
+		<br>
 <!--Hunts are something that do not change. Species will always be deer, elk, antelope etc.-->
 	<section class="Hunts-applied">
 	<div class="Hunters-hunts">
-<strong>Hunt:</strong>
+<strong>Hunt:(strong)</strong>
 <br>
 	<li>HuntCodeID (PK)</li>
 <li>HunterprofileId (fk)</li>
@@ -47,6 +48,7 @@
 <section class="Data-ERD-chart">
 <div class="Hunter-data"
      <title>Entity Relationship Diagram</title>
+	<br>
 	<strong>Data Design Project-ERD Diagram</strong>
 	<br>
 <img src="hunter%20data.jpg">
