@@ -7,11 +7,11 @@
 		<h2>Entities and Attributes:</h2>
 <strong>Hunter:(Strong)</strong>
 		<br>
-		<li>HunterprofileId (pk)</li>
-		<li>profileActivationToken (for account verification)</li>
+		<li>HunterId (pk)</li>
+		<li>HunterActivationToken (for account verification)</li>
 		<li>HunterName</li>
 		<li>HunterEmail</li>
-		<li>HunterprofileHash (for account password)</li>
+		<li>HunterHash (for account password)</li>
 	</div>
 </section>
 <br>
@@ -19,31 +19,29 @@
 <div class="bill">
 <strong>Bill:(weak)</strong>
 <li>BillId (pk)</li>
-<li>billHunterprofileId (fk1)</li>
-<li>billDate</li>
+<li>BillHunterId (fk1)</li>
+<li>BillDate</li>
 	<br>
 <!--The Bills can change for each hunter. depending on if they apply for ONLY deer, ONLY elk etc. -->
 	<section class="Bill-Hunt">
 	<div class="Hunts-billed">
 	<strong>Bill Hunt:(weak)</strong>
 <br>
-<li>billHuntHuntCodeId (fk)</li>
-<li>billHunterProfileId (fk)</li>
-<li>billHuntSpeciesNameUnit(fk)</li>
+<li>billHuntHuntId (fk)</li>
+<li>billHuntHunterId (fk)</li>
+<li>billHuntApproved </li>
 		<br>
 <!--Hunts are something that do not change. Species will always be deer, elk, antelope etc.-->
 	<section class="Hunts-applied">
 	<div class="Hunters-hunts">
 <strong>Hunt:(strong)</strong>
 <br>
-	<li>HuntCodeID (PK)</li>
-<li>HunterprofileId (fk)</li>
-<li>HuntspeciesName</li>
-<li>HuntspeciesNameUnit</li>
+	<li>HuntId (PK)</li>
+<li>Huntspecies</li>
+<li>HuntspeciesUnit</li>
 <li>Huntdate</li>
-<li>Huntweapon</li>
-<li>HuntPrice</li>
-<li>HuntAttachmentCode</li>
+<li>HuntCost</li>
+<li>HuntAttachment</li>
 <br>
 <section class="Data-ERD-chart">
 <div class="Hunter-data"
@@ -51,7 +49,7 @@
 	<br>
 	<strong>Data Design Project-ERD Diagram</strong>
 	<br>
-<img src="hunter%20data.jpg">
+<img src="hunter%20(1).jpg">
 </section>
 
 <h2><a href="index.html">Home Page</a></h2>
