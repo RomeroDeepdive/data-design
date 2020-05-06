@@ -6,47 +6,47 @@
 -- this is akin to reformatting and reinstalling Windows (OS X never needs a reinstall...) ;)
 -- never ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever ever
 -- do this on live data!!!!
-DROP TABLE IF EXISTS Hunt;
-DROP TABLE IF EXISTS BillHunt;
-DROP TABLE IF EXISTS Bill;
-DROP TABLE IF EXISTS Hunter;
+DROP TABLE IF EXISTS hunt;
+DROP TABLE IF EXISTS billHunt;
+DROP TABLE IF EXISTS bill;
+DROP TABLE IF EXISTS hunter;
 
 -- the CREATE TABLE function is a function that takes tons of arguments to layout the table's schema
-CREATE TABLE Hunter (
+CREATE TABLE hunter (
 -- this creates the attribute for the primary key
 -- not null means the attribute is required!
-HunterId BINARY(16) NOT NULL,
-HunterActivationToken CHAR(32),
-HunterName CHAR(32) NOT NULL,
-HunterEmail VARCHAR(128) NOT NULL,
-HunterHash CHAR(97) NOT NULL,
+hunterId BINARY(16) NOT NULL,
+hunterActivationToken CHAR(32),
+hunterName CHAR(32) NOT NULL,
+hunterEmail VARCHAR(128) NOT NULL,
+hunterHash CHAR(97) NOT NULL,
 
-unique(HunterEmail),
-primary key(HunterId)
+unique(hunterEmail),
+primary key(hunterId)
 );
 
 -- create the Bill entity
-CREATE TABLE Bill (
+CREATE TABLE bill (
 
-BillId BINARY(16) NOT NULL,
-BillHunterId BINARY(32) NOT NULL,
-BillDate DATETIME(3) NOT NULL,
+billId BINARY(16) NOT NULL,
+billHunterId BINARY(32) NOT NULL,
+billDate DATETIME(3) NOT NULL,
   -- this creates the actual foreign key relation
-  FOREIGN KEY(BillHunterId) REFERENCES Hunter(HunterId),
+  FOREIGN KEY(billHunterId) REFERENCES hunter(hunterId),
   -- and finally create the primary key
-  PRIMARY KEY(BillId)
+  PRIMARY KEY(billId)
 );
 
-CREATE table Hunt (
+CREATE table hunt (
 
-HuntId BINARY(16) NOT NULL,
-Huntspecies CHAR (16) NOT NULL,
-HuntspeciesUnit VARCHAR(16) NOT NULL,
-Huntdate DATETIME(3) NOT NULL,
-HuntCost VARCHAR(8) NOT NULL,
-HuntAttachment VARCHAR(16) NOT NULL,
+huntId BINARY(16) NOT NULL,
+huntSpecies CHAR (16) NOT NULL,
+huntSpeciesUnit VARCHAR(16) NOT NULL,
+huntDate DATETIME(3) NOT NULL,
+huntCost VARCHAR(8) NOT NULL,
+huntAttachment VARCHAR(16) NOT NULL,
 
- PRIMARY KEY(HuntId)
+ PRIMARY KEY(huntId)
 );
 -- create the like entity (a weak entity from an m-to-n for profile -->Bill Hunt)
 CREATE TABLE billHunt (
@@ -58,8 +58,8 @@ billHuntApproved CHAR(128) NOT NULL,
   INDEX(billHuntHuntId),
   INDEX(billHuntHunterId),
   -- create the foreign key relations
-  FOREIGN KEY(billHuntHuntId) REFERENCES Hunt(HuntId),
-  FOREIGN KEY(billHuntHunterId) REFERENCES Hunter(HunterId),
+  FOREIGN KEY(billHuntHuntId) REFERENCES hunt(huntId),
+  FOREIGN KEY(billHuntHunterId) REFERENCES hunter(hunterId),
   -- finally, create a composite foreign key with the two foreign keys
   PRIMARY KEY(billHuntHuntId, billHuntHunterId)
 );
